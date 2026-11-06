@@ -1,31 +1,101 @@
-# Change these first
-owner: upptime # Your GitHub organization or username, where this repository lives
-repo: upptime # The name of this repository
+# Configuration de la page de statut publique https://status.lokyzen.com (Upptime).
+# Copie de référence : le fichier actif est à la racine du dépôt public Inferevo/lokyzen-status.
+# Mise en place et mises à jour : docs/production/page-de-statut.md.
+owner: Inferevo
+repo: lokyzen-status
 
+# Sondes : une requête toutes les 5 minutes depuis GitHub Actions (hors de nos serveurs Scaleway).
 sites:
-  - name: Google
-    url: https://www.google.com
-  - name: Wikipedia
-    url: https://en.wikipedia.org
-  - name: Hacker News
-    url: https://news.ycombinator.com
-  - name: Secret Site
-    url: $SECRET_SITE
+  - name: Application
+    url: https://lokyzen.com/api/health
+    # 503 « db_unavailable » quand la base ne répond pas : compté comme panne.
+    expectedStatusCodes:
+      - 200
+    icon: https://lokyzen.com/brand/lokyzen-favicon.svg
+  - name: Site lokyzen.com
+    url: https://lokyzen.com
+    icon: https://lokyzen.com/brand/lokyzen-favicon.svg
+
+# Incidents ouverts à la main (onglet Issues du dépôt) : seuls ces comptes peuvent les créer ou les fermer.
+assignees:
+  - bebouze
+
+workflowSchedule:
+  uptime: '*/5 * * * *'
+  responseTime: '0 23 * * *'
+  graphs: '0 0 * * *'
+  summary: '0 0 * * *'
+  staticSite: '0 1 * * *'
+  updateTemplate: '0 0 * * *'
+  updates: '0 3 * * *'
 
 status-website:
-  # Add your custom domain name, or remove the `cname` line if you don't have a domain
-  # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
-  cname: demo.upptime.js.org
-  # baseUrl: /your-repo-name
-  logoUrl: https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg
-  name: Upptime
-  introTitle: "**Upptime** is the open-source uptime monitor and status page, powered entirely by GitHub."
-  introMessage: This is a sample status page which uses **real-time** data from our [GitHub repository](https://github.com/upptime/upptime). No server required — just GitHub Actions, Issues, and Pages. [**Get your own for free**](https://github.com/upptime/upptime)
+  cname: status.lokyzen.com
+  name: Lokyzen · État du service
+  introTitle: État du service Lokyzen
+  introMessage: Disponibilité de l'application et du site Lokyzen, vérifiée toutes les 5 minutes. Cette page est hébergée hors de nos serveurs et reste lisible pendant une panne.
+  logoUrl: https://lokyzen.com/brand/lokyzen-horizontal-fr.svg
+  favicon: https://lokyzen.com/brand/lokyzen-favicon.svg
+  theme: light
   navbar:
-    - title: Status
+    - title: État
       href: /
-    - title: GitHub
-      href: https://github.com/$OWNER/$REPO
+    - title: Lokyzen
+      href: https://lokyzen.com
+    - title: Nous contacter
+      href: https://lokyzen.com/aide#aide-contact
 
-# Upptime also supports notifications, assigning issues, and more
-# See https://upptime.js.org/docs/configuration
+i18n:
+  activeIncidents: Incidents en cours
+  allSystemsOperational: Tous les services fonctionnent
+  incidentReport: 'Rapport d''incident n°$NUMBER →'
+  activeIncidentSummary: 'Ouvert le $DATE, $POSTS messages'
+  incidentTitle: 'Détails de l''incident n°$NUMBER'
+  incidentDetails: 'Détails de l''incident'
+  incidentFixed: Résolu
+  incidentOngoing: En cours
+  incidentOpenedAt: Ouvert le
+  incidentClosedAt: Fermé le
+  incidentSubscribe: Suivre (RSS)
+  incidentViewOnGitHub: Voir sur GitHub
+  incidentCommentSummary: 'Publié le $DATE par $AUTHOR'
+  incidentBack: '← Retour à tous les incidents'
+  pastIncidents: Incidents passés
+  pastIncidentsResolved: 'Résolu en $MINUTES minutes, $POSTS messages'
+  liveStatus: État actuel
+  overallUptime: 'Disponibilité globale : $UPTIME'
+  overallUptimeTitle: Disponibilité globale
+  averageResponseTime: 'Temps de réponse moyen : $TIME ms'
+  averageResponseTimeTitle: Temps de réponse moyen
+  sevelDayResponseTime: Temps de réponse sur 7 jours
+  responseTimeMs: Temps de réponse (ms)
+  up: Opérationnel
+  down: Indisponible
+  degraded: Dégradé
+  ms: ms
+  loading: Chargement
+  navGitHub: Code source
+  footer: 'Page générée avec Upptime, hébergée par GitHub.'
+  rateLimitExceededTitle: Trop de requêtes
+  rateLimitExceededIntro: 'Vous avez dépassé le nombre de requêtes autorisées par heure, réessayez plus tard.'
+  rateLimitExceededWhatDoesErrorMean: 'Que signifie cette erreur ?'
+  rateLimitExceededErrorMeaning: 'Cette page utilise l''API de GitHub, limitée à 60 requêtes par heure et par adresse IP.'
+  rateLimitExceededErrorHowCanFix: 'Comment corriger ?'
+  rateLimitExceededErrorFix: 'Attendez une heure avant de recharger la page.'
+  rateLimitExceededGeneratePAT: ''
+  rateLimitExceededHasSet: ''
+  rateLimitExceededRemoveToken: ''
+  rateLimitExceededGenerateToken: ''
+  url: URL
+  duration: Durée
+  durationMin: 'Durée : $DURATION minutes'
+  durationMins: 'Durée : $DURATION minutes'
+  durationHour: 'Durée : $DURATION heure'
+  durationHours: 'Durée : $DURATION heures'
+  durationDay: 'Durée : $DURATION jour'
+  durationDays: 'Durée : $DURATION jours'
+  duration24H: 24 heures
+  duration7D: 7 jours
+  duration30D: 30 jours
+  duration1Y: 1 an
+  durationAll: Tout
