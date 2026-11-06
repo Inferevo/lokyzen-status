@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Application",
+    "url": "https://lokyzen.com/api/health",
+    "icon": "https://lokyzen.com/brand/lokyzen-favicon.svg",
+    "slug": "application",
+    "status": "up",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
+    "time": 560,
+    "timeDay": 560,
+    "timeWeek": 560,
+    "timeMonth": 560,
+    "timeYear": 560,
+    "dailyMinutesDown": {}
+  },
+  {
+    "name": "Site lokyzen.com",
+    "url": "https://lokyzen.com",
+    "icon": "https://lokyzen.com/brand/lokyzen-favicon.svg",
+    "slug": "site-lokyzen-com",
+    "status": "up",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
+    "time": 882,
+    "timeDay": 882,
+    "timeWeek": 882,
+    "timeMonth": 882,
+    "timeYear": 882,
+    "dailyMinutesDown": {}
+  }
+]
