@@ -12,6 +12,12 @@ sites:
     expectedStatusCodes:
       - 200
     icon: https://lokyzen.com/brand/lokyzen-favicon.svg
+  - name: Tâches de fond
+    url: https://lokyzen.com/api/health/worker
+    # 503 « queue_unavailable » (Redis) ou « worker_late » (worker arrêté : messages, automatisations, synchronisations).
+    expectedStatusCodes:
+      - 200
+    icon: https://lokyzen.com/brand/lokyzen-favicon.svg
   - name: Site lokyzen.com
     url: https://lokyzen.com
     icon: https://lokyzen.com/brand/lokyzen-favicon.svg
